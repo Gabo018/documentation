@@ -49,11 +49,11 @@ screen.
          connected to an IoT Box.
 
 The screen should also appear in the list of :guilabel:`Displays` on the :abbr:`IoT (Internet of
-Things)` Box homepage.
+Things)` Box home page.
 
 .. image:: screen/screen-screen-name-example.png
    :align: center
-   :alt: An example of a screen display name shown on the IoT Box homepage.
+   :alt: An example of a screen display name shown on the IoT Box home page.
 
 .. note::
    If no screen is detected, a default display named :guilabel:`Distant Display` will be used
@@ -66,8 +66,8 @@ Things)` Box homepage.
 Usage
 =====
 
-Show Point of Sales orders to customers
----------------------------------------
+Show Point of Sale orders to customers
+--------------------------------------
 
 To use the screen in the :guilabel:`Point of Sale` app, go to :menuselection:`Point of Sale -->
 Configuration --> Point of Sale`, open the desired screen, click on :guilabel:`Edit`, and enable the
@@ -80,8 +80,8 @@ Now, select :guilabel:`IoT Box` in the drop-down menu and choose the screen in t
        :align: center
        :alt: Connect the screen display to the Point of Sale app.
 
-The screen is now available for :abbr:`PoS (Point of Sale)` sessions. A "screen" icon will appear
-in the top bar to inform the connection status with the screen.
+The screen is now available for :abbr:`PoS (Point of Sale)` sessions. A :guilabel:`screen` icon will
+appear in the :guilabel:`top bar` to inform the connection status with the screen.
 
     .. image:: screen/screen-pos-icon.png
        :align: center
