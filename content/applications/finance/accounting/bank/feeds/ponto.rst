@@ -119,6 +119,6 @@ and we advise you to contact Ponto directly.
 
 .. seealso::
 
-   * :doc:`bank_synchronization`
+   * :doc:`transactions`
    * :doc:`saltedge`
-   * :doc:`bank_statements`
+   * :doc:`transactions`
