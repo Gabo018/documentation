@@ -1,3 +1,6 @@
+
+.. _https_certificate_iot:
+
 =======================
 HTTPS certificate (IoT)
 =======================
@@ -19,27 +22,27 @@ known as *Secure Sockets Layer* (SSL).
 that a particular provider is who they say they are.
 
 .. note::
-   In this documentation and Odoo we will use the term "HTTPS certificate"
-   to define the fact that the SSL certificate is valid and allows
-   :abbr:`HTTPS (Hypertext Transfer Protocol Secure)` connection.
+   In this documentation and throughout Odoo the term "HTTPS certificate" will be used to define the
+   fact that the SSL certificate is valid and allows a :abbr:`HTTPS (Hypertext Transfer Protocol
+   Secure)` connection.
 
 
 Why is it needed?
 =================
 
-In order to communicate with certain network devices (in particular payment terminals), the usage of
-:abbr:`HTTPS (Hypertext Transfer Protocol Secure)` is mandatory. If the
-:abbr:`HTTPS (Hypertext Transfer Protocol Secure)` certificate isn't valid, some devices won't be
-able to interact with the :abbr:`IoT (Internet of Things)` Box.
+In order to communicate with certain network devices (in particular for payment terminals), the
+usage of :abbr:`HTTPS (Hypertext Transfer Protocol Secure)` is mandatory. If the :abbr:`HTTPS
+(Hypertext Transfer Protocol Secure)` certificate isn't valid, some devices won't be able to
+interact with the :abbr:`IoT (Internet of Things)` Box.
 
 
-How to have obtain a Hypertext Transfer Protocol Secure (HTTPS) certificate
-===========================================================================
+How to obtain a Hypertext Transfer Protocol Secure (HTTPS) certificate
+======================================================================
 
 The generation of the :abbr:`HTTPS (Hypertext Transfer Protocol Secure)` certificate is automatic.
 
 The :abbr:`IoT (Internet of Things)` Box will send a specific request to `<https://www.odoo.com>`__
-that will send back the :abbr:`HTTPS (Hypertext Transfer Protocol Secure)` certificate if the
+which will send back the :abbr:`HTTPS (Hypertext Transfer Protocol Secure)` certificate if the
 :abbr:`IoT (Internet of Things)` box and database are eligible.
 
 Internet of Things (IoT) eligibility
@@ -52,43 +55,42 @@ Internet of Things (IoT) eligibility
     - Have an :guilabel:`IoT Box Subscription` line.
     - Be in progress.
 
-    If your subscription is linked to your `<https://www.odoo.com>`__ portal user you can check
-    both information by yourself on the portal subscription page.
+    If the subscription is linked to a `<https://www.odoo.com>`__ portal user check the information
+    on the portal subscription page.
 
     .. figure:: https_certificate_iot/sub_example_in_progress.png
         :align: center
+        :alt: Odoo.com portal subscriptions filtered by "in progress".
 
         In this case, both subscriptions are considered "in progress" as the
         :guilabel:`Filter By: In Progress` was used
 
-    If you are not sure for any of the points, contact your Account Manager or Partner on the
-    matter.
+    .. note::
+        If the subscription is in question, contact the database's Account Manager or Partner
+        regarding the matter.
 
-Troubleshooting
-===============
+Troubleshooting Hypertext Transfer Protocol Secure (HTTPS) certificate errors
+=============================================================================
 
 If anything goes wrong during the process of the "HTTPS certificate" generation or reception, a
-specific error will code be given on your :abbr:`IoT (Internet of Things)` box home page.
+specific error will code be given on the :abbr:`IoT (Internet of Things)` box home page.
 
 
  .. tip::
     Accessing the :abbr:`IoT (Internet of Things)` box homepage will check for the presence of the
-    "HTTPS certificate" and will attempt its generation if missing.
-    As such, if you have an error on your :abbr:`IoT (Internet of Things)` box home page, you can
-    refresh the :abbr:`IoT (Internet of Things)` home page to see if the error disappears.
+    "HTTPS certificate" and will attempt its generation if it is missing. As such, if there is an
+    error on the :abbr:`IoT (Internet of Things)` box home page, refresh the :abbr:`IoT (Internet
+    of Things)` home page to see if the error disappears.
 
     .. seealso::
         - :ref:`iot/https-certificate`
 
-
-Hypertext Transfer Protocol Secure (HTTPS) certificate errors
--------------------------------------------------------------
-
 `ERR_IOT_HTTPS_CHECK_NO_SERVER`
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-------------------------------
 
 Reason:
-    The configuration regarding the server is missing.
+    The configuration regarding the server is missing. In other words, the Odoo instance is not
+    connected with the IoT box.
 
 Solution:
     Ensure that the server is configured.
@@ -98,58 +100,56 @@ Solution:
    :doc:`connect`
 
 `ERR_IOT_HTTPS_CHECK_CERT_READ_EXCEPTION`
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-----------------------------------------
 
 Reason:
-    An unhandled error happened when trying to read the existing
-    :abbr:`HTTPS (Hypertext Transfer Protocol Secure)` certificate
+    An unhandled error happened when trying to read the existing :abbr:`HTTPS (Hypertext Transfer
+    Protocol Secure)` certificate.
 
 Solution:
     Ensure that the :abbr:`HTTPS (Hypertext Transfer Protocol Secure)` certificate file is readable.
 
 `ERR_IOT_HTTPS_LOAD_NO_CREDENTIAL`
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+----------------------------------
 
 Reason:
     The contract and/or database :abbr:`UUID (Universal Unique Identifier)` is missing.
 
 Solution:
-    Ensure that both values are configured as intended.
-    To modify them, go to the :abbr:`IoT (Internet of Things)` box home page, then navigate to
-    :guilabel:`Credential`
+    Ensure that both values are configured as intended. To modify them, go to the :abbr:`IoT
+    (Internet of Things)` box home page, and navigate to :guilabel:`Credential`.
 
 `ERR_IOT_HTTPS_LOAD_REQUEST_EXCEPTION`
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+--------------------------------------
 
 Reason:
     An unexpected error happened when the :abbr:`IoT (Internet of Things)` box tried to reach
-    `<https://www.odoo.com>`__. The causes are likely related to the network
+    `<https://www.odoo.com>`__. The causes are likely due to the network
     infrastructure/configuration:
 
      - The :abbr:`IoT (Internet of Things)` box does not have access to internet.
      - The network does not allow the :abbr:`IoT (Internet of Things)` box to communicate with
-       `<https://www.odoo.com>`__.
-       This may be due to network devices preventing the communication ( firewalls, etc.) or network
-       configuration (:abbr:`VPN (Virtual Private Network)`, etc.).
+       `<https://www.odoo.com>`__. This may be due to network devices preventing the communication
+       (firewalls, etc.) or the network configuration (:abbr:`VPN (Virtual Private Network)`,
+       etc.).
 
     .. warning::
-        Consult with your system or network administrator if this issue should arise.
-        As this error code depends on the network infrastructure, it goes beyond support service
-        scope.
+        Consult with your system or network administrator should this issue arise. This error code
+        depends on the network infrastructure and goes beyond Odoo support's service scope.
 
         .. seealso::
            :doc:`../../../../services/support/what_can_i_expect`
 
     .. note::
         More information regarding the error that occurred can be found in, the full request
-        exception details on the :abbr:`IoT (Internet of Things)` box logs.
+        exception details which are in the :abbr:`IoT (Internet of Things)` box logs.
 
 `ERR_IOT_HTTPS_LOAD_REQUEST_STATUS`
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-----------------------------------
 
 Reason:
-    The IoT-box was able to reached `<https://www.odoo.com>`__ but receive an unusual
-    `response HTTP response status codes
+    The IoT-box was able to reached `<https://www.odoo.com>`__ but received an unusual
+    `HTTP response (status codes)
     <https://developer.mozilla.org/en-US/docs/Web/HTTP/Status>`__.
 
     This error code will also give the HTTP response status codes. For example, if the error reads
@@ -157,62 +157,63 @@ Reason:
     the "Page Not Found" code.
 
 Solution:
-    Check if `<https://www.odoo.com>`__ is down using a web browser, it's possible that is is down
+    Check if `<https://www.odoo.com>`__ is down using a web browser, it's possible that it is down
     due to maintenance.
 
-     - If :menuselection:`Odoo.com` is down due to maintenance, unfortunately there is nothing that
+     - If `<https://www.odoo.com>`__ is down due to maintenance, unfortunately there is nothing that
        can be done but instead wait for it to recover.
-     - If :menuselection:`Odoo.com` is not down due to maintenance, we invite you to open a
+     - If `<https://www.odoo.com>`__ is not down due to maintenance, open a
        `support ticket <https://www.odoo.com/help>`__ on the matter. Ensure that the 3 digits status
        code next to the code error is included in the support ticket.
 
 `ERR_IOT_HTTPS_LOAD_REQUEST_NO_RESULT`
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+--------------------------------------
 
 Reason:
     The :abbr:`IoT (Internet of Things)` box was able to reached `<https://www.odoo.com>`__ but it
     refused to deliver the :abbr:`HTTPS (Hypertext Transfer Protocol Secure)` certificate.
 
 Solution:
-    Ensure that the :abbr:`IoT (Internet of Things)` box and database are eligible:
-    `Internet of Things (IoT) eligibility`_
+    Ensure that the :abbr:`IoT (Internet of Things)` box and database are eligible for a
+    certificate: `Internet of Things (IoT) eligibility`_
 
 .. _iot/https-certificate:
 
 How to ensure that the HTTPS certificate is correct
 ===================================================
 
-If the certificate has been applied successfully, you will see on your odoo database
-a new :abbr:`HTTPS (Hypertext Transfer Protocol Secure)` :abbr:`URL (Uniform Resource Locator)` for
-the :abbr:`IoT (Internet of Things)` box ending with `.odoo-iot.com` will appear on the Odoo
-database.
+If the certificate has been applied successfully, a new :abbr:`HTTPS (Hypertext Transfer Protocol
+Secure)` :abbr:`URL (Uniform Resource Locator)` for the :abbr:`IoT (Internet of Things)` box ending
+with `.odoo-iot.com` will appear on the Odoo database.
 
 .. image:: https_certificate_iot/odoo_new_domain.png
    :align: center
+   :alt: Odoo IoT app IoT box with .odoo-iot.com domain.
 
 When navigating to the :abbr:`URL (Uniform Resource Locator)` in a browser a secured
 :abbr:`HTTPS (Hypertext Transfer Protocol Secure)` connection will be established.
 
 .. figure:: https_certificate_iot/secured_connection.png
    :align: center
+   :alt: Example of valid SSL certificate details on the browser.
 
-   Padlock in Chrome on Windows 10 attesting the fact that the connection is secured in
-   :abbr:`HTTPS (Hypertext Transfer Protocol Secure)`
+   Padlock in Chrome on Windows 10 attesting the fact that the connection is secured in :abbr:`HTTPS
+   (Hypertext Transfer Protocol Secure)`
 
-The IoT-box homepage will also now display an `OK` status next to `HTTPS certificate`. The
+The IoT-box homepage will now display an `OK` status next to `HTTPS certificate`. The
 :guilabel:`details` button next to it will give information regarding the certificate.
 
 .. image:: https_certificate_iot/status_ok.png
    :align: center
-
+   :alt: IoT box homepage with HTTPS certificate OK status.
 
 Domain Name System (DNS) issue
 ==============================
 
-If the :abbr:`IoT (Internet of Things)` box can be accessed from its IP address but not its
-`.odoo-iot.com` one, then the :abbr:`IoT (Internet of Things)` box is likely running into a
-:abbr:`DNS (Domain Name System)` issue. On some browsers, it will give an error code mentioning
-:abbr:`DNS (Domain Name System)` (like `DNS_PROBE_FINISHED_NXDOMAIN`).
+If the :abbr:`IoT (Internet of Things)` box can be accessed from its :abbr:`IP (Intrernet Protocol)`
+address but not the Odoo assigned domain: `.odoo-iot.com`; then the :abbr:`IoT (Internet of Things)`
+box is likely running into a :abbr:`DNS (Domain Name System)` issue. On some browsers, it will give
+an error code mentioning :abbr:`DNS (Domain Name System)` (like `DNS_PROBE_FINISHED_NXDOMAIN`).
 
 These :abbr:`DNS (Domain Name System)` issues may appear as the following in different browsers:
 
@@ -222,6 +223,7 @@ These :abbr:`DNS (Domain Name System)` issues may appear as the following in dif
 
       .. figure:: https_certificate_iot/dns/dns_chrome.png
          :align: center
+         :alt: DNS issue on Chrome browser on Windows 10.
 
          DNS issue on Chrome browser on Windows 10
 
@@ -230,6 +232,7 @@ These :abbr:`DNS (Domain Name System)` issues may appear as the following in dif
 
       .. figure:: https_certificate_iot/dns/dns_firefox.png
          :align: center
+         :alt: DNS issue on Firefox browser on Windows 10.
 
          DNS issue on Firefox browser on Windows 10
 
@@ -237,6 +240,7 @@ These :abbr:`DNS (Domain Name System)` issues may appear as the following in dif
 
       .. figure:: https_certificate_iot/dns/dns_edge.png
          :align: center
+         :alt: DNS issue on Edge browser on Windows 10.
 
          DNS issue on Edge browser on Windows 10
 
@@ -245,13 +249,13 @@ These :abbr:`DNS (Domain Name System)` issues may appear as the following in dif
 Domain Name System (DNS) issue solution
 ---------------------------------------
 
- #. If the router allows for the changing the DNS manually on it, then set it to use
-    `Google DNS <https://developers.google.com/speed/public-dns>`__.
- #. If your router don't allow you to do that, then a change will need to be made on the
-    :abbr:`DNS (Domain Name System)` settings of each of the devices using
+ #. Should the router allow the :abbr:`DNS (Domain Name System)` to be manually changed on it, then
+    change it to use `Google DNS <https://developers.google.com/speed/public-dns>`__.
+ #. If your router doesn't allow for this, then a change will need to be made on the :abbr:`DNS
+    (Domain Name System)` settings of each of the devices using
     `Google DNS <https://developers.google.com/speed/public-dns>`__. This will need to occur on
     **every** device that plans to interact with the :abbr:`IoT (Internet of Things)` box (ex.:
-    computer, tablet and phone). The individual device configuration processes can be found on the
+    computer, tablet or phone). The individual device configuration processes can be found on the
     website of the device's manufacturer.
 
     .. note::
@@ -259,10 +263,9 @@ Domain Name System (DNS) issue solution
         their :abbr:`DNS (Domain Name System)` settings changed as they are already configured with
         custom :abbr:`DNS (Domain Name System)`.
 
-
 .. warning::
-    Consult with your system or network administrator if this issue should arise.
-    As this error code depends on the network infrastructure, it goes beyond support service scope.
+    Consult with your system or network administrator should this issue arise. This error code
+    depends on the network infrastructure, and it goes beyond support's service scope.
 
     .. seealso::
        :doc:`../../../../services/support/what_can_i_expect`
